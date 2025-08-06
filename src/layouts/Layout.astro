@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Robert Ngo - Personal Website" />
+    <meta name="author" content="Robert Ngo" />
+    <title>{title} | Robert Ngo</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-indigo-600">Robert Ngo</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="/" class="hover:text-indigo-600 transition-colors">Home</a>
+          <a href="/projects" class="hover:text-indigo-600 transition-colors">Projects</a>
+          <a href="/contact" class="hover:text-indigo-600 transition-colors">Contact</a>
+        </div>
+        <button class="md:hidden" onclick="toggleMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <main class="container mx-auto px-4 pt-20">
+      <slot />
+    </main>
+
+    <footer class="bg-white border-t border-gray-200">
+      <div class="container mx-auto px-4 py-8">
+        <p class="text-gray-600 text-center">
+          © {new Date().getFullYear()} Robert Ngo. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.mobile-menu');
+        menu.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>
