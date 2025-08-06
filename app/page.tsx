@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -33,10 +36,16 @@ export default function Home() {
             className="space-y-4"
           >
             <Link 
-              href="#projects"
-              className="px-8 py-4 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors"
+              href="#gallery"
+              className="px-8 py-4 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors mr-4"
             >
-              View My Projects
+              View Gallery
+            </Link>
+            <Link 
+              href="#projects"
+              className="px-8 py-4 bg-transparent border-2 border-blue-600 rounded-full hover:bg-blue-600 transition-colors mr-4"
+            >
+              View Projects
             </Link>
             <Link 
               href="#contact"
@@ -60,6 +69,36 @@ export default function Home() {
           <p className="text-gray-300 leading-relaxed">
             I'm a passionate developer and creator with a love for building beautiful, functional web experiences. 
             I'm constantly learning and exploring new technologies to create innovative solutions.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Photo Gallery Section */}
+      <section id="gallery" className="py-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
+        >
+          <h2 className="text-4xl font-bold mb-12 text-center">Gallery</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Placeholder for Instagram images - replace with your actual images */}
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <motion.div
+                key={item}
+                whileHover={{ scale: 1.05 }}
+                className="aspect-square bg-gray-700 rounded-lg overflow-hidden cursor-pointer"
+              >
+                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                  <span>Image {item}</span>
+                  {/* Replace with: <Image src={`/images/photo-${item}.jpg`} alt={`Photo ${item}`} fill className="object-cover" /> */}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-gray-400 mt-8">
+            Add your Instagram photos to the /public/images folder and update the Image components above
           </p>
         </motion.div>
       </section>
