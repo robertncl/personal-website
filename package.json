@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.0.0",
+    "astro": "7.3.3",
     "tailwindcss": "^3.4.1",
-    "@astrojs/tailwind": "^4.1.0",
-    "@astrojs/image": "^4.0.0",
-    "@astrojs/markdown": "^4.0.0"
+    "@astrojs/tailwind": "6.0.2",
+    "@astrojs/image": "0.18.0",
+    "@astrojs/markdown-remark": "^7.3.0"
   }
 }
